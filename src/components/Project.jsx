@@ -1,10 +1,15 @@
-export default function Project({ project }) {
+import { memo } from "react";
+
+export default memo(function Project({ project }) {
+  console.log("Rendering project:", project);
+
   return (
     <li className="relative border border-solid border-gray-300 rounded-lg overflow-hidden shadow-xl">
       <img
         className="w-full aspect-video object-cover object-center border-b border-solid border-gray-300"
         src={project.image}
         alt={project.name}
+        loading="lazy"
       />
       <div className="px-4 py-2">
         <ul className="flex flex-wrap gap-1 text-xs text-white mb-1">
@@ -47,4 +52,4 @@ export default function Project({ project }) {
       </div>
     </li>
   );
-}
+});

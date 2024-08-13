@@ -17,7 +17,7 @@ export const getLanguages = async (url) => {
         Authorization: `token ${import.meta.env.VITE_GITHUB_ACCESS_TOKEN}`,
       },
     });
-    if (response.ok) {
+    if (!response.ok) {
       throw new Error(`Failed to fetch languages: ${response.statusText}`);
     }
     const data = await response.json();
