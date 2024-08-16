@@ -1,10 +1,12 @@
+import { lazy, Suspense } from "react";
 import Header from "./components/Header.jsx";
 import Hero from "./sections/Hero.jsx";
-import About from "./sections/About.jsx";
-import Projects from "./sections/Projects.jsx";
-import Skills from "./sections/Skills.jsx";
-import Contact from "./sections/Contact.jsx";
+const About = lazy(() => import("./sections/About.jsx"));
+const Projects = lazy(() => import("./sections/Projects.jsx"));
+const Skills = lazy(() => import("./sections/Skills.jsx"));
+const Contact = lazy(() => import("./sections/Contact.jsx"));
 import Footer from "./components/Footer.jsx";
+import Spinner from "./components/Spinner.jsx";
 
 export default function App() {
   return (
@@ -13,10 +15,12 @@ export default function App() {
 
       <main className="container grid gap-8">
         <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
+        <Suspense fallback={<Spinner />}>
+          <About />
+          <Projects />
+          <Skills />
+          <Contact />
+        </Suspense>
       </main>
 
       <Footer />
