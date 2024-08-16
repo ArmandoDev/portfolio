@@ -1,6 +1,5 @@
 import { useState } from "react";
 import HeaderLink from "./HeaderLink";
-import LanguageSelector from "./LanguageSelector";
 import Hamburger from "hamburger-react";
 
 export default function Header() {
@@ -31,7 +30,6 @@ export default function Header() {
             <HeaderLink href="#projects" title="Proyectos" setOpen={setOpen} />
             <HeaderLink href="#skills" title="Habilidades" setOpen={setOpen} />
             <HeaderLink href="#contact" title="Contacto" setOpen={setOpen} />
-            <LanguageSelector setOpen={setOpen} />
           </ul>
         </nav>
 
