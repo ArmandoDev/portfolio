@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header
       id="top-header"
-      className="fixed top-0 left-0 right-0 z-50 px-4 py-2"
+      className="fixed top-0 left-0 right-0 z-50 px-4 py-2 text-lg"
     >
       <div className="container flex justify-between items-center">
         <a href="/" title="Recargar la página">
@@ -27,8 +27,8 @@ export default function Header() {
           >
             <HeaderLink href="#hero" title="Inicio" setOpen={setOpen} />
             <HeaderLink href="#about" title="Acerca de" setOpen={setOpen} />
-            <HeaderLink href="#projects" title="Proyectos" setOpen={setOpen} />
             <HeaderLink href="#skills" title="Habilidades" setOpen={setOpen} />
+            <HeaderLink href="#projects" title="Proyectos" setOpen={setOpen} />
             <HeaderLink href="#contact" title="Contacto" setOpen={setOpen} />
           </ul>
         </nav>

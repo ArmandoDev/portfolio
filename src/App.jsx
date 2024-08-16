@@ -17,8 +17,8 @@ export default function App() {
         <Hero />
         <Suspense fallback={<Spinner />}>
           <About />
-          <Projects />
           <Skills />
+          <Projects />
           <Contact />
         </Suspense>
       </main>
