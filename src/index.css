@@ -64,15 +64,3 @@ main.container {
   color: #333;
   animation: cursor-animation 1s infinite steps(1);
 }
-
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  html {
-    font-size: 12px;
-  }
-}
