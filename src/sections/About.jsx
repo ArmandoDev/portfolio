@@ -36,7 +36,7 @@ export default function About() {
           , donde enseño programación en español, contribuyendo así a la
           comunidad hispanohablante de desarrolladores.
         </p>
-        <p>
+        <p className="font-medium opacity-80">
           {">"} Mi lengua materna es el español (México), y también tengo
           conocimientos de inglés. Aunque mi enfoque principal es trabajar con
           clientes hispanohablantes, tengo experiencia en proyectos que
