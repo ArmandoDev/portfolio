@@ -4,14 +4,14 @@ export default memo(function Project({ project }) {
   return (
     <li className="relative border border-solid border-gray-300 rounded-lg overflow-hidden shadow-xl px-4 py-2">
       <h3 className="text-xl font-bold mb-1">{project.name}</h3>
-      <ul className="flex flex-wrap gap-1 text-xs text-white mb-1">
+      <ul className="flex flex-wrap gap-1 text-sm text-white mb-1">
         {project.languages.map((language) => (
           <li className="bg-blue-500 rounded-sm p-1" key={language.id}>
             {language.name}
           </li>
         ))}
       </ul>
-      <p className="opacity-80 mb-10">
+      <p className="opacity-80 mb-10 text-base">
         {project.description || "No description provided."}
       </p>
 

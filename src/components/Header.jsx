@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header
       id="top-header"
-      className="fixed top-0 left-0 right-0 z-50 px-4 py-2 text-lg"
+      className="fixed top-0 left-0 right-0 z-50 px-4 py-2"
     >
       <div className="container flex justify-between items-center">
         <a href="/" title="Recargar la página">
