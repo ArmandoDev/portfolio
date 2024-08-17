@@ -1,20 +1,7 @@
 import Article from "../components/Article";
+import { SOCIAL_LINKS } from "../utils";
 
 export default function Hero() {
-  const socialLinks = [
-    {
-      href: "https://github.com/armandodev",
-      title: "GitHub",
-      icon: "icons/github.svg",
-    },
-    { href: "#", title: "LinkedIn", icon: "icons/linkedin.svg" },
-    {
-      href: "mailto:jorge.armando.c.cardenas@gmail.com",
-      title: "Email",
-      icon: "icons/gmail.svg",
-    },
-  ];
-
   return (
     <Article
       articleId="hero"
@@ -42,7 +29,7 @@ export default function Hero() {
         </p>
 
         <ul className="flex gap-2 mt-2">
-          {socialLinks.map(({ href, title, icon }) => {
+          {SOCIAL_LINKS.map(({ href, title, icon }) => {
             return (
               <li key={title}>
                 <a
