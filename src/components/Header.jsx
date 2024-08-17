@@ -16,14 +16,17 @@ export default function Header() {
             className="w-12 aspect-square object-cover object-center"
             src="/icons/logo.svg"
             alt="Logo"
+            width="48"
+            height="48"
           />
         </a>
 
-        <nav>
+        <nav arial-label="Navegación principal">
           <ul
             className={`absolute ${
               isOpen ? "top-0 bg-white" : "-top-[100dvh]"
             } left-0 right-0 h-dvh flex flex-col justify-center items-center z-40 transition-all duration-300 ease-in-out md:static md:flex-row md:gap-2 md:w-fit md:h-fit`}
+            aria-hidden={!isOpen}
           >
             <HeaderLink href="#hero" title="Inicio" setOpen={setOpen} />
             <HeaderLink href="#about" title="Acerca de" setOpen={setOpen} />
@@ -38,6 +41,7 @@ export default function Header() {
           toggle={setOpen}
           duration={0.3}
           distance="sm"
+          aria-expanded={isOpen}
         />
       </div>
     </header>

@@ -1,4 +1,6 @@
-export default function HeaderLink({ href, title, setOpen }) {
+import { memo } from "react";
+
+export default memo(function HeaderLink({ href, title, setOpen }) {
   return (
     <li>
       <a
@@ -11,4 +13,4 @@ export default function HeaderLink({ href, title, setOpen }) {
       </a>
     </li>
   );
-}
+});
