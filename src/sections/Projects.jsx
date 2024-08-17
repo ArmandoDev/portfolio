@@ -1,36 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState, useCallback } from "react";
 import Article from "../components/Article";
-import { fetchProjects } from "../utils";
+import { useProjects } from "../hooks/useProjects";
 import Project from "../components/Project";
+
+const INITIAL_PROJECT_COUNT = 4;
 
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
-  const [projects, setProjects] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { projects, isLoading, error } = useProjects();
 
-  useEffect(() => {
-    const getProjects = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetchProjects();
-        if (response) {
-          setProjects(response);
-        } else {
-          throw new Error("No se pudieron cargar los proyectos");
-        }
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getProjects();
+  const visibleProjects = showAll
+    ? projects
+    : projects.slice(0, INITIAL_PROJECT_COUNT);
+
+  const handleShowAll = useCallback(() => {
+    setShowAll((prev) => !prev);
   }, []);
-
-  const handleShowAll = () => {
-    setShowAll(!showAll);
-  };
 
   return (
     <Article articleId="projects" className="min-h-fit overflow-hidden">
@@ -42,54 +27,52 @@ export default function Projects() {
           <p role="alert" className="text-red-500">
             {error}
           </p>
-        ) : showAll ? (
-          <ul
-            className="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in animate-duration-300"
-            role="list"
-            aria-label="Lista de proyectos"
-          >
-            {projects.map((project) => (
-              <Project project={project} key={project.id} />
-            ))}
-          </ul>
         ) : (
-          <ul
-            className="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in animate-duration-300"
-            role="list"
-            aria-label="Lista de proyectos"
-          >
-            {projects.slice(0, 4).map((project) => (
-              <Project project={project} key={project.id} />
-            ))}
-          </ul>
-        )}
-        {projects.length > 4 && (
-          <button
-            className="flex items-center gap-2 text-lg"
-            onClick={handleShowAll}
-          >
-            {showAll ? (
-              <>
-                Ocultar proyectos{" "}
-                <img
-                  className="icon"
-                  src="/icons/arrow-up.svg"
-                  alt="Ícono de flecha hacia arriba"
-                  loading="lazy"
-                />
-              </>
-            ) : (
-              <>
-                Ver todos{" "}
-                <img
-                  className="icon"
-                  src="/icons/arrow-down.svg"
-                  alt="Ícono de flecha hacia abajo"
-                  loading="lazy"
-                />
-              </>
+          <>
+            <ul
+              className="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in animate-duration-300"
+              role="list"
+              aria-label="Lista de proyectos"
+            >
+              {visibleProjects.map((project) => (
+                <Project project={project} key={project.id} />
+              ))}
+            </ul>
+            {projects.length > INITIAL_PROJECT_COUNT && (
+              <button
+                className="flex items-center gap-2 text-lg"
+                onClick={handleShowAll}
+                aria-expanded={showAll}
+                aria-controls="projects-list"
+              >
+                {showAll ? (
+                  <>
+                    Ocultar proyectos
+                    <img
+                      className="icon"
+                      src="/icons/arrow-up.svg"
+                      alt=""
+                      aria-hidden="true"
+                      width="24"
+                      height="24"
+                    />
+                  </>
+                ) : (
+                  <>
+                    Ver todos los proyectos ({projects.length})
+                    <img
+                      className="icon"
+                      src="/icons/arrow-down.svg"
+                      alt=""
+                      aria-hidden="true"
+                      width="24"
+                      height="24"
+                    />
+                  </>
+                )}
+              </button>
             )}
-          </button>
+          </>
         )}
       </section>
     </Article>
