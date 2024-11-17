@@ -1,13 +1,11 @@
 import { useState, useCallback } from "react";
 import Article from "../components/Article";
-import { useProjects } from "../hooks/useProjects";
 import Project from "../components/Project";
-
-const INITIAL_PROJECT_COUNT = 4;
+import projects from "../data/projects";
+import { INITIAL_PROJECT_COUNT } from "../utils";
 
 export default function Projects() {
   const [showAll, setShowAll] = useState(false);
-  const { projects, isLoading, error } = useProjects();
 
   const visibleProjects = showAll
     ? projects
@@ -21,16 +19,10 @@ export default function Projects() {
     <Article articleId="projects" className="min-h-fit overflow-hidden">
       <section className="w-full grid gap-5 place-items-center">
         <h2 className="w-full text-3xl font-bold">{">"} Proyectos</h2>
-        {isLoading ? (
-          <p>Cargando proyectos...</p>
-        ) : error ? (
-          <p role="alert" className="text-red-500">
-            {error}
-          </p>
-        ) : (
+        {
           <>
             <ul
-              className="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in animate-duration-300"
+              className="w-full grid grid-cols-1 sm:grid-cols-2 gap-5 animate-fade-in animate-duration-300"
               role="list"
               aria-label="Lista de proyectos"
             >
@@ -73,7 +65,7 @@ export default function Projects() {
               </button>
             )}
           </>
-        )}
+        }
       </section>
     </Article>
   );

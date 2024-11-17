@@ -2,7 +2,7 @@ import { memo } from "react";
 
 export default memo(function Project({ project }) {
   return (
-    <li className="relative border border-solid border-gray-300 rounded-lg overflow-hidden shadow-xl px-4 py-2">
+    <li className="relative border border-solid border-gray-300 rounded-lg overflow-hidden p-4">
       <h3 className="text-xl font-bold mb-1">{project.name}</h3>
       <ul
         className="flex flex-wrap gap-1 text-sm text-white mb-1"
@@ -22,27 +22,29 @@ export default memo(function Project({ project }) {
         className="absolute bottom-4 right-4 flex gap-2"
         aria-label={`Enlaces relacionados con ${project.name}`}
       >
-        <li className="hover:scale-125 transition-transform duration-200 ease-in-out">
-          <a
-            href={project.html_url}
-            title={`Ver repositorio de ${project.name} en GitHub`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              className="icon"
-              src="/icons/github.svg"
-              alt="Ícono de GitHub"
-              loading="lazy"
-              width="48"
-              height="48"
-            />
-          </a>
-        </li>
-        {project.homepage && (
+        {project.repo && (
           <li className="hover:scale-125 transition-transform duration-200 ease-in-out">
             <a
-              href={project.homepage}
+              href={project.repo}
+              title={`Ver repositorio de ${project.name} en GitHub`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="icon"
+                src="/icons/github.svg"
+                alt="Ícono de GitHub"
+                loading="lazy"
+                width="48"
+                height="48"
+              />
+            </a>
+          </li>
+        )}
+        {project.url && (
+          <li className="hover:scale-125 transition-transform duration-200 ease-in-out">
+            <a
+              href={project.url}
               title={`Ver página web de ${project.name}`}
               target="_blank"
               rel="noopener noreferrer"

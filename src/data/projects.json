@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Portafolio",
+    "description": "Portafolio personal en el que muestro mis proyectos, habilidades y experiencias.",
+    "repo": "https://github.com/armandodev/portfolio",
+    "url": "",
+    "languages": [
+      {
+        "id": 1,
+        "name": "JavaScript"
+      },
+      {
+        "id": 2,
+        "name": "React"
+      },
+      {
+        "id": 3,
+        "name": "Tailwind CSS"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Sistemas numéricos",
+    "description": "Utilidad web para calcular conversiones entre sistemas numéricos como decimales, binarios, hexadecimales y octales.",
+    "repo": "https://github.com/armandodev/numerical-systems",
+    "url": "https://armandodev-numerical-systems.vercel.app",
+    "languages": [
+      {
+        "id": 1,
+        "name": "JavaScript"
+      },
+      {
+        "id": 2,
+        "name": "React"
+      },
+      {
+        "id": 3,
+        "name": "Tailwind CSS"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Wallet Watch",
+    "description": "Utilidad web para presupuestar tus ingresos y gastos con el objetivo de tener un control sobre tus finanzas.",
+    "repo": "",
+    "url": "https://armandodev-wallet-watch.vercel.app",
+    "languages": [
+      {
+        "id": 1,
+        "name": "JavaScript"
+      },
+      {
+        "id": 2,
+        "name": "React"
+      },
+      {
+        "id": 3,
+        "name": "Tailwind CSS"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Menú de restaurante",
+    "description": "Idea para páginas de restaurantes que incluye todas las funcionalidades necesarias para atraer y servir a los clientes.",
+    "repo": "https://github.com/armandodev/restaurant-menu",
+    "url": "https://armandodev-restaurant.vercel.app/",
+    "languages": [
+      {
+        "id": 1,
+        "name": "TypeScript"
+      },
+      {
+        "id": 2,
+        "name": "Astro"
+      },
+      {
+        "id": 3,
+        "name": "Tailwind CSS"
+      }
+    ]
+  }
+]
